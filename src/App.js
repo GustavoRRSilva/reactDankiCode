@@ -4,25 +4,21 @@ import Menu from "./menu";
 import { useState, useEffect } from "react";
 
 function App(props) {
-  const [count, setCount] = useState(0); //count é o valor inicial e sempre que for trocar tem que usar o setCount
+  const[segundo,setSegundo] = useState(0);
+  const[minuto,setMinuto] = useState(0);
+  const[hora,setHora] = useState(0);
   useEffect(() => {
-    document.title = `você clicou ${count} vezes`;
-  }, [count]); //efeito usado p toda vez q a pagina atualiza, e com o ultimo parametro servindo para atualizar toda vez q o count mudar
-  const [nome, setNome] = useState("Gustavo");
-  if ((nome == "Gustavo")) {
-    return (
-      <div className="App">
-        <Menu />
-        <p>Seu nome é gustavo</p>
-      </div>
-    );
-  } else {
-    return (
-      <div className="App">
-        <Menu />
-        <p>Seu nome não é gustavo</p>
-      </div>
-    );
-  }
+    const tempo = setInterval(() => {
+      setSegundo((segundo) => (segundo === 59 ? 0 : segundo + 1));
+      setMinuto((minuto) => (segundo === 59 ? minuto + 1 : minuto));
+      setHora((hora) => (minuto === 59 && segundo === 59 ? hora + 1 : hora));
+    }, 1000);
+
+    return () => clearInterval(tempo);
+  }, []);
+
+  return(<div>
+    {segundo}:{minuto}:{hora}  
+  </div>)
 }
 export default App;
