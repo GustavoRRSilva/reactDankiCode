@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import Menu from './menu';
 
 function App(props) {
   return (
@@ -10,6 +11,7 @@ function App(props) {
    <p>
     {props.texto.chamada2}
    </p>
+   <Menu/>
    </div>
   );
 }
