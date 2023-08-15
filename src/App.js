@@ -4,12 +4,12 @@ import './App.css';
 function App(props) {
   return (
    <div className='App'>
-    <h2 >
-     {props.texto.chamada}
-    </h2>
-    <p >
-     {props.texto.chamada1}
-    </p>
+   <h1>
+    {props.texto.chamada}
+   </h1>
+   <p>
+    {props.texto.chamada2}
+   </p>
    </div>
   );
 }
